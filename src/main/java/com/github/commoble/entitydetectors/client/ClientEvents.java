@@ -2,7 +2,6 @@ package com.github.commoble.entitydetectors.client;
 
 import com.github.commoble.entitydetectors.blocks.BlockRegistrar;
 import com.github.commoble.entitydetectors.blocks.TileEntityRegistrar;
-import com.github.commoble.entitydetectors.items.ImprintedSlimeballItemColor;
 import com.github.commoble.entitydetectors.items.ItemRegistrar;
 
 import net.minecraft.client.Minecraft;

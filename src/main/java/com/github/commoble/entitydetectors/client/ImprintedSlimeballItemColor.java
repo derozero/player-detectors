@@ -1,6 +1,8 @@
-package com.github.commoble.entitydetectors.items;
+package com.github.commoble.entitydetectors.client;
 
 import java.util.Optional;
+
+import com.github.commoble.entitydetectors.items.ImprintedSlimeballItem;
 
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.entity.EntityType;

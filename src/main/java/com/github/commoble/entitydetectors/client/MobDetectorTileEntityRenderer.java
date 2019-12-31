@@ -1,17 +1,13 @@
 package com.github.commoble.entitydetectors.client;
 
-import com.github.commoble.entitydetectors.blocks.BlockRegistrar;
 import com.github.commoble.entitydetectors.blocks.MobDetectorTileEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 
-import net.minecraft.block.BlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.player.ClientPlayerEntity;
-import net.minecraft.client.renderer.BlockRendererDispatcher;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.Vector3f;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
-import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.renderer.tileentity.TileEntityRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.entity.Entity;
@@ -75,22 +71,22 @@ public class MobDetectorTileEntityRenderer extends TileEntityRenderer<MobDetecto
 			float rotation = renderTicks * DEGREES_PER_TICK % 360F;
 			
 			
-			// render slime
-			matrix.func_227860_a_();	// push
-
-			float slimeScale = Math.min(0.999F, (float)distFactor);
-			
-			float translation = (1F-slimeScale)*0.5F;
-
-			matrix.func_227861_a_(translation, 0.999F, translation);	// translation
-			matrix.func_227862_a_(slimeScale, slimeScale, slimeScale);	// scale
-			
-			BlockRendererDispatcher blockDispatcher = Minecraft.getInstance().getBlockRendererDispatcher();
-			BlockState slimeState = BlockRegistrar.FAKE_SLIME.getDefaultState();
-			blockDispatcher.func_228791_a_(slimeState, matrix, buffer, intA, OverlayTexture.field_229196_a_);
-			
-			
-			matrix.func_227865_b_(); // pop
+//			// render slime TODO
+//			matrix.func_227860_a_();	// push
+//
+//			float slimeScale = Math.min(0.999F, (float)distFactor);
+//			
+//			float translation = (1F-slimeScale)*0.5F;
+//
+//			matrix.func_227861_a_(translation, 0.999F, translation);	// translation
+//			matrix.func_227862_a_(slimeScale, slimeScale, slimeScale);	// scale
+//			
+//			BlockRendererDispatcher blockDispatcher = Minecraft.getInstance().getBlockRendererDispatcher();
+//			BlockState slimeState = BlockRegistrar.FAKE_SLIME.getDefaultState();
+//			blockDispatcher.func_228791_a_(slimeState, matrix, buffer, intA, OverlayTexture.field_229196_a_);
+//			
+//			
+//			matrix.func_227865_b_(); // pop
 			
 			
 			// render entity
