@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "block/furnace_top",
+        "side": "entitydetectors:block/player_detector_side_1"
+    }
+}

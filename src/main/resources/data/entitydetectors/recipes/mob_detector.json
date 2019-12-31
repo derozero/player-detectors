@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#s#",
+    "SQS",
+    "#R#"
+  ],
+  "key": {
+    "Q": {
+      "item": "minecraft:quartz"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "s": {
+      "item": "minecraft:slime_ball"
+    },
+    "S": {
+      "item": "minecraft:spider_eye"
+    },
+    "#": {
+      "item": "minecraft:red_nether_bricks"
+    }
+  },
+  "result": {
+    "item": "entitydetectors:player_detector"
+  }
+}
