@@ -45,7 +45,7 @@ public abstract class EntityDetectorBlock extends Block
 		this.setDefaultState(this.getDefaultState().with(POWERED, false).with(LEVEL, 0));
 	}
 	
-	public abstract <T extends Entity> Predicate<? extends T> getEntityFilter(IWorld world, BlockPos pos);
+	public abstract <T extends Entity> Predicate<T> getEntityFilter(IWorld world, BlockPos pos);
 
 	@Override
 	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder)

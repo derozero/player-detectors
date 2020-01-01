@@ -23,7 +23,7 @@ public class PlayerDetectorBlock extends EntityDetectorBlock
 //	}
 
 	@Override
-	public <T extends Entity> Predicate<? extends T> getEntityFilter(IWorld world, BlockPos pos)
+	public <T extends Entity> Predicate<T> getEntityFilter(IWorld world, BlockPos pos)
 	{
 		// return this::isEntityPlayer;
 		return Predicates.alwaysTrue();	// we already filter by the PlayerEntity class

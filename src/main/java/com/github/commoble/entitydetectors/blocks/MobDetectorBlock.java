@@ -39,7 +39,7 @@ public class MobDetectorBlock extends EntityDetectorBlock
 	}
 
 	@Override
-	public <T extends Entity> Predicate<? extends T> getEntityFilter(IWorld world, BlockPos pos)
+	public <T extends Entity> Predicate<T> getEntityFilter(IWorld world, BlockPos pos)
 	{
 
 		return entity -> WorldHelper.getTileEntityAt(MobDetectorTileEntity.class, world, pos).map(te -> te.isEntityDetectable(entity)).orElse(true);
