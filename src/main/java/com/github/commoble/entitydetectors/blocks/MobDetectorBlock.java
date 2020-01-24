@@ -27,15 +27,15 @@ public class MobDetectorBlock extends EntityDetectorBlock
 	}
 
 	@Override
-	public ActionResultType func_225533_a_(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult hit)
+	public ActionResultType onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult hit)
 	{
 		ItemStack stack = player.getHeldItem(hand);
 		if (MobDetectorItemHandler.isItemValidFilter(stack))
 		{
 			return WorldHelper.getTileEntityAt(MobDetectorTileEntity.class, world, pos).map(te -> te.onRightClickWithSlime(player, stack, world, pos))
-				.orElseGet(() -> super.func_225533_a_(state, world, pos, player, hand, hit));
+				.orElseGet(() -> super.onBlockActivated(state, world, pos, player, hand, hit));
 		}
-		return super.func_225533_a_(state, world, pos, player, hand, hit);
+		return super.onBlockActivated(state, world, pos, player, hand, hit);
 	}
 
 	@Override

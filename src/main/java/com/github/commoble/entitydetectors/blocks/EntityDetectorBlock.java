@@ -114,7 +114,7 @@ public abstract class EntityDetectorBlock extends Block
 
 	// onBlockActivated
 	@Override
-	public ActionResultType func_225533_a_(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult hit)
+	public ActionResultType onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult hit)
 	{
 		if (state.has(LEVEL))
 		{
@@ -130,13 +130,12 @@ public abstract class EntityDetectorBlock extends Block
 		}
 		else
 		{
-			return super.func_225533_a_(state, world, pos, player, hand, hit);
+			return super.onBlockActivated(state, world, pos, player, hand, hit);
 		}
 	}
 
-	// onRandomTick
 	@Override
-	public void func_225534_a_(BlockState state, ServerWorld world, BlockPos pos, Random rand)
+	public void tick(BlockState state, ServerWorld world, BlockPos pos, Random rand)
 	{
 		this.onUpdate(state, world, pos);
 	}

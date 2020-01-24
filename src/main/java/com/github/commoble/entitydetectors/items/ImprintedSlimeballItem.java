@@ -36,7 +36,7 @@ public class ImprintedSlimeballItem extends Item
 	public static ItemStack createItemStackForEntityType(EntityType<?> entityType)
 	{
 		ItemStack stack = new ItemStack(ItemRegistrar.IMPRINTED_SLIME_BALL);
-		stack.setTagInfo(ENTITY_KEY, StringNBT.func_229705_a_(entityType.getRegistryName().toString()));
+		stack.setTagInfo(ENTITY_KEY, StringNBT.valueOf(entityType.getRegistryName().toString()));
 		return stack;
 	}
 

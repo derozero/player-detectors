@@ -34,9 +34,8 @@ public class MobDetectorTileEntityRenderer extends TileEntityRenderer<MobDetecto
 		super(p_i226006_1_);
 	}
 
-	// render
 	@Override
-	public void func_225616_a_(MobDetectorTileEntity te, float partialTicks, MatrixStack matrix, IRenderTypeBuffer buffer, int intA, int intB)
+	public void render(MobDetectorTileEntity te, float partialTicks, MatrixStack matrix, IRenderTypeBuffer buffer, int intA, int intB)
 	{
 		ClientPlayerEntity player = Minecraft.getInstance().player;
 		if (player != null && te.getWorld().isAirBlock(te.getPos().up()))
@@ -91,7 +90,7 @@ public class MobDetectorTileEntityRenderer extends TileEntityRenderer<MobDetecto
 			
 			// render entity
 			// based on MobSpawnerTileEntityRenderer
-			matrix.func_227860_a_();	// push
+			matrix.push();
 
 			float entityScale = 0.53125F;
 			
@@ -107,15 +106,15 @@ public class MobDetectorTileEntityRenderer extends TileEntityRenderer<MobDetecto
 
 			entity.setPosition(teX, teY, teZ);
 			
-			matrix.func_227861_a_(0.5D, 1.0F, 0.5D);	// translation
-			matrix.func_227863_a_(Vector3f.field_229181_d_.func_229187_a_(rotation));	// rotation
-			matrix.func_227862_a_(entityScale, entityScale, entityScale);	// scale
+			matrix.translate(0.5D, 1.0F, 0.5D);
+			matrix.rotate(Vector3f.YP.rotationDegrees(rotation));
+			matrix.scale(entityScale, entityScale, entityScale);
 			
-			renderManager.func_229084_a_(entity, 0.0D, 0.0D, 0.0D, 0.0F, partialTicks, matrix, buffer, intA); // render entity
+			renderManager.renderEntityStatic(entity, 0.0D, 0.0D, 0.0D, 0.0F, partialTicks, matrix, buffer, intA);
 			
 			renderManager.setRenderShadow(true);
 
-			matrix.func_227865_b_();	// pop
+			matrix.pop();	// pop
 		}
 	}
 

@@ -20,7 +20,7 @@ public class ClientEvents
 	
 	public static void onClientSetup(FMLClientSetupEvent event)
 	{
-		RenderTypeLookup.setRenderLayer(BlockRegistrar.FAKE_SLIME, RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(BlockRegistrar.FAKE_SLIME, RenderType.translucent());
 		ClientRegistry.bindTileEntityRenderer(TileEntityRegistrar.MOB_DETECTOR, MobDetectorTileEntityRenderer::new);
 		Minecraft.getInstance().getItemColors().register(new ImprintedSlimeballItemColor(), ItemRegistrar.IMPRINTED_SLIME_BALL);
 	}
