@@ -1,12 +1,11 @@
-package com.github.commoble.entitydetectors;
+package commoble.entitydetectors;
 import java.util.function.Consumer;
 
-import com.github.commoble.entitydetectors.blocks.BlockRegistrar;
-import com.github.commoble.entitydetectors.blocks.TileEntityRegistrar;
-import com.github.commoble.entitydetectors.client.ClientEvents;
-import com.github.commoble.entitydetectors.items.ImprintedSlimeballItem;
-import com.github.commoble.entitydetectors.items.ItemRegistrar;
-
+import commoble.entitydetectors.blocks.BlockRegistrar;
+import commoble.entitydetectors.blocks.TileEntityRegistrar;
+import commoble.entitydetectors.client.ClientEvents;
+import commoble.entitydetectors.items.ImprintedSlimeballItem;
+import commoble.entitydetectors.items.ItemRegistrar;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.player.PlayerEntity;

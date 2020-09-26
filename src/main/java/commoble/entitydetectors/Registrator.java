@@ -1,4 +1,4 @@
-package com.github.commoble.entitydetectors;
+package commoble.entitydetectors;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.IForgeRegistry;

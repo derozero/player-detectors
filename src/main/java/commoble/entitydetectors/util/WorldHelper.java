@@ -1,4 +1,4 @@
-package com.github.commoble.entitydetectors.util;
+package commoble.entitydetectors.util;
 
 import java.util.Optional;
 

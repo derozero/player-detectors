@@ -1,4 +1,4 @@
-package com.github.commoble.entitydetectors;
+package commoble.entitydetectors;
 
 public class RegistryNames
 {

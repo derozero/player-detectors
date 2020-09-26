@@ -1,7 +1,6 @@
-package com.github.commoble.entitydetectors;
+package commoble.entitydetectors;
 
-import com.github.commoble.entitydetectors.ConfigHelper.ConfigValueListener;
-
+import commoble.entitydetectors.ConfigHelper.ConfigValueListener;
 import net.minecraftforge.common.ForgeConfigSpec;
 
 public class Config
