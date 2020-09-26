@@ -13,6 +13,7 @@ import net.minecraft.nbt.StringNBT;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -29,8 +30,21 @@ public class ImprintedSlimeballItem extends Item
 	public ITextComponent getDisplayName(ItemStack stack)
 	{
 		ITextComponent baseName = super.getDisplayName(stack);
-		return getEntityType(stack).map(entityType -> baseName.appendText(" (").appendSibling(new TranslationTextComponent(entityType.getTranslationKey())).appendText(")"))
+		return getEntityType(stack)
+			.map(EntityType::getTranslationKey)
+			.map(TranslationTextComponent::new)
+			.map(entityName ->
+				getDisplayName(entityName, baseName))
 			.orElse(baseName);
+	}
+	
+	public static ITextComponent getDisplayName(TranslationTextComponent entityName, ITextComponent baseName)
+	{
+		return new StringTextComponent("")
+			.append(baseName)
+			.appendString(" (")
+			.append(entityName)
+			.appendString(")");
 	}
 
 	public static ItemStack createItemStackForEntityType(EntityType<?> entityType)

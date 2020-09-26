@@ -22,8 +22,8 @@ public class BlockRegistrar
 	
 	public static void onRegisterBlocks(Registrator<Block> reg)
 	{
-		reg.register(ResourceLocations.PLAYER_DETECTOR, new PlayerDetectorBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).lightValue(7)));
-		reg.register(ResourceLocations.MOB_DETECTOR, new MobDetectorBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).lightValue(7).func_226896_b_()));
+		reg.register(ResourceLocations.PLAYER_DETECTOR, new PlayerDetectorBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).setLightLevel(EntityDetectorBlock::getLightValue).notSolid()));
+		reg.register(ResourceLocations.MOB_DETECTOR, new MobDetectorBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).setLightLevel(EntityDetectorBlock::getLightValue).notSolid()));
 		reg.register(ResourceLocations.FAKE_SLIME, new Block(Block.Properties.create(Material.CLAY)));
 	}
 }

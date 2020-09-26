@@ -6,13 +6,13 @@ import commoble.entitydetectors.blocks.MobDetectorTileEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.player.ClientPlayerEntity;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
-import net.minecraft.client.renderer.Vector3f;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.tileentity.TileEntityRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.util.math.vector.Vector3f;
 import net.minecraft.world.World;
 
 public class MobDetectorTileEntityRenderer extends TileEntityRenderer<MobDetectorTileEntity>
@@ -54,7 +54,7 @@ public class MobDetectorTileEntityRenderer extends TileEntityRenderer<MobDetecto
 		double teZ = pos.getZ() + 0.5D;
 		
 		// player position is only updated on game tick, add extra offset based on velocity for more smoothness
-		Vec3d vel = player.getMotion();
+		Vector3d vel = player.getMotion();
 		double extraX = vel.getX() * partialTicks;
 		double extraY = vel.getY() * partialTicks;
 		double extraZ = vel.getZ() * partialTicks;

@@ -6,6 +6,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import commoble.entitydetectors.items.ImprintedSlimeballItem;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.item.ItemEntity;
@@ -95,9 +96,14 @@ public class MobDetectorTileEntity extends TileEntity
 	}
 
 	@Override
-	public void read(CompoundNBT compound)
+	public void read(BlockState state, CompoundNBT compound)
 	{
-		super.read(compound);
+		super.read(state, compound);
+		this.readData(compound);
+	}
+	
+	public void readData(CompoundNBT compound)
+	{
 		if (compound.contains(FILTER_KEY))
 		{
 			this.slimeStack = ItemStack.read(compound.getCompound(FILTER_KEY));
@@ -150,6 +156,6 @@ public class MobDetectorTileEntity extends TileEntity
 	@Override
 	public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt)
 	{
-		this.read(pkt.getNbtCompound());
+		this.readData(pkt.getNbtCompound());
 	}
 }

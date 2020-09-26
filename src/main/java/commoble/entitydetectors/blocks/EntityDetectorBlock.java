@@ -20,11 +20,10 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.shapes.VoxelShapes;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
-import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
@@ -52,25 +51,9 @@ public abstract class EntityDetectorBlock extends Block
 		builder.add(POWERED, LEVEL);
 	}
 
-	/**
-	 * How many world ticks before ticking
-	 */
-	@Override
-	public int tickRate(IWorldReader worldIn)
+	public static int getLightValue(BlockState state)
 	{
-		return EntityDetectors.config.refreshRate.get();
-	}
-
-	/**
-	 * Amount of light emitted
-	 * 
-	 * @deprecated prefer calling {@link BlockState#getLightValue()}
-	 */
-	@Deprecated
-	@Override
-	public int getLightValue(BlockState state)
-	{
-		return state.get(POWERED) ? super.getLightValue(state) : 0;
+		return state.get(POWERED) ? 7 : 0;
 	}
 
 	/**
@@ -111,11 +94,10 @@ public abstract class EntityDetectorBlock extends Block
 		return blockState.get(POWERED) ? 15 : 0;
 	}
 
-	// onBlockActivated
 	@Override
 	public ActionResultType onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult hit)
 	{
-		if (state.has(LEVEL))
+		if (state.hasProperty(LEVEL))
 		{
 			int oldLevel = state.get(LEVEL);
 			int newLevel = (oldLevel + 1) % 4; // cycle forward
@@ -148,22 +130,16 @@ public abstract class EntityDetectorBlock extends Block
 		}
 	}
 
-	// public BlockState getStateForPlacement(BlockItemUseContext context)
-	// {
-	// return this.getDefaultState().with(FACING,
-	// context.getNearestLookingDirection().getOpposite().getOpposite());
-	// }
-
 	public void onUpdate(BlockState state, IWorld world, BlockPos pos)
 	{
 		BlockState actualState = world.getBlockState(pos);
-		if (!world.isRemote() && actualState.has(LEVEL) && actualState.has(POWERED))
+		if (!world.isRemote() && actualState.hasProperty(LEVEL) && actualState.hasProperty(POWERED))
 		{
 			int level = actualState.get(LEVEL);
 			double radius = 2D * Math.pow(2D, level);
 			double radiusSquared = radius * radius;
 			AxisAlignedBB aabb = CUBE_BOX.offset(pos).grow(radius);
-			Vec3d center = new Vec3d(pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D);
+			Vector3d center = new Vector3d(pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D);
 			boolean areEntitiesNear = world.getEntitiesWithinAABB(this.entityClass, aabb, this.getEntityFilter(world, pos))
 				.stream().anyMatch(entity -> entity.getDistanceSq(center) < radiusSquared);
 			if (areEntitiesNear != actualState.get(POWERED))

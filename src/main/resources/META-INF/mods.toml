@@ -10,6 +10,7 @@ loaderVersion="[30,)" #mandatory (28 is current forge version)
 # A URL to refer people to when problems occur with this mod
 issueTrackerURL="https://github.com/Commoble/entity-detectors/issues" #optional
 # A list of mods - how many allowed here is determined by the individual mod loader
+license="MIT License"
 [[mods]] #mandatory
 # The modid of the mod
 modId="entitydetectors" #mandatory
@@ -38,7 +39,7 @@ Adds blocks that emit redstone signals while entities are near.
     # Does this dependency have to exist - if not, ordering below must be specified
     mandatory=true #mandatory
     # The version range of the dependency
-    versionRange="[30,)" #mandatory
+    versionRange="[34,)" #mandatory
     # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
     ordering="NONE"
     # Side this dependency is applied on - BOTH, CLIENT or SERVER
@@ -47,6 +48,6 @@ Adds blocks that emit redstone signals while entities are near.
 [[dependencies.entitydetectors]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.15.2,1.16)"
+    versionRange="[1.16.3, 1.17)"
     ordering="NONE"
     side="BOTH"
