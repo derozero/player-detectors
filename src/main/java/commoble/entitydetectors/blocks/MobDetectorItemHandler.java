@@ -1,7 +1,6 @@
-package com.github.commoble.entitydetectors.blocks;
+package commoble.entitydetectors.blocks;
 
-import com.github.commoble.entitydetectors.ResourceLocations;
-
+import commoble.entitydetectors.ResourceLocations;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tags.ItemTags;
 import net.minecraftforge.items.IItemHandler;

@@ -1,12 +1,12 @@
-package com.github.commoble.entitydetectors.client;
+package commoble.entitydetectors.client;
 
 import java.util.Optional;
 
-import com.github.commoble.entitydetectors.util.ClassHelper;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 
+import commoble.entitydetectors.util.ClassHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.World;

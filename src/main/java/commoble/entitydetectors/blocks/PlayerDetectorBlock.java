@@ -1,4 +1,4 @@
-package com.github.commoble.entitydetectors.blocks;
+package commoble.entitydetectors.blocks;
 
 import java.util.function.Predicate;
 

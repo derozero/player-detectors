@@ -1,11 +1,10 @@
-package com.github.commoble.entitydetectors.items;
+package commoble.entitydetectors.items;
 
-import com.github.commoble.entitydetectors.EntityDetectors;
-import com.github.commoble.entitydetectors.Registrator;
-import com.github.commoble.entitydetectors.RegistryNames;
-import com.github.commoble.entitydetectors.ResourceLocations;
-import com.github.commoble.entitydetectors.blocks.BlockRegistrar;
-
+import commoble.entitydetectors.EntityDetectors;
+import commoble.entitydetectors.Registrator;
+import commoble.entitydetectors.RegistryNames;
+import commoble.entitydetectors.ResourceLocations;
+import commoble.entitydetectors.blocks.BlockRegistrar;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;

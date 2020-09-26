@@ -1,10 +1,9 @@
-package com.github.commoble.entitydetectors.blocks;
+package commoble.entitydetectors.blocks;
 
-import com.github.commoble.entitydetectors.EntityDetectors;
-import com.github.commoble.entitydetectors.Registrator;
-import com.github.commoble.entitydetectors.RegistryNames;
-import com.github.commoble.entitydetectors.ResourceLocations;
-
+import commoble.entitydetectors.EntityDetectors;
+import commoble.entitydetectors.Registrator;
+import commoble.entitydetectors.RegistryNames;
+import commoble.entitydetectors.ResourceLocations;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.registries.ObjectHolder;
 

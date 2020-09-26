@@ -1,9 +1,8 @@
-package com.github.commoble.entitydetectors.client;
+package commoble.entitydetectors.client;
 
-import com.github.commoble.entitydetectors.blocks.BlockRegistrar;
-import com.github.commoble.entitydetectors.blocks.TileEntityRegistrar;
-import com.github.commoble.entitydetectors.items.ItemRegistrar;
-
+import commoble.entitydetectors.blocks.BlockRegistrar;
+import commoble.entitydetectors.blocks.TileEntityRegistrar;
+import commoble.entitydetectors.items.ItemRegistrar;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;

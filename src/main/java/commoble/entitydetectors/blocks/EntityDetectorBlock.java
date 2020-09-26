@@ -1,10 +1,9 @@
-package com.github.commoble.entitydetectors.blocks;
+package commoble.entitydetectors.blocks;
 
 import java.util.Random;
 import java.util.function.Predicate;
 
-import com.github.commoble.entitydetectors.EntityDetectors;
-
+import commoble.entitydetectors.EntityDetectors;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;

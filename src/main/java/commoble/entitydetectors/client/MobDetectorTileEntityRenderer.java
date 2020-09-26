@@ -1,8 +1,8 @@
-package com.github.commoble.entitydetectors.client;
+package commoble.entitydetectors.client;
 
-import com.github.commoble.entitydetectors.blocks.MobDetectorTileEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 
+import commoble.entitydetectors.blocks.MobDetectorTileEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.player.ClientPlayerEntity;
 import net.minecraft.client.renderer.IRenderTypeBuffer;

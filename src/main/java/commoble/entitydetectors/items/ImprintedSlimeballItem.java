@@ -1,4 +1,4 @@
-package com.github.commoble.entitydetectors.items;
+package commoble.entitydetectors.items;
 
 import java.util.EnumSet;
 import java.util.Optional;

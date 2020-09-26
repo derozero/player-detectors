@@ -1,9 +1,8 @@
-package com.github.commoble.entitydetectors.blocks;
+package commoble.entitydetectors.blocks;
 
 import java.util.function.Predicate;
 
-import com.github.commoble.entitydetectors.util.WorldHelper;
-
+import commoble.entitydetectors.util.WorldHelper;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.MobEntity;

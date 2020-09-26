@@ -1,12 +1,11 @@
-package com.github.commoble.entitydetectors.blocks;
+package commoble.entitydetectors.blocks;
 
 import java.util.Optional;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.github.commoble.entitydetectors.items.ImprintedSlimeballItem;
-
+import commoble.entitydetectors.items.ImprintedSlimeballItem;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.item.ItemEntity;
