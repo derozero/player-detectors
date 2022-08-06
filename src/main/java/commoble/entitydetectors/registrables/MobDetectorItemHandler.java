@@ -1,20 +1,20 @@
-package commoble.entitydetectors.blocks;
+package commoble.entitydetectors.registrables;
 
-import commoble.entitydetectors.ResourceLocations;
-import net.minecraft.item.ItemStack;
+import commoble.entitydetectors.EntityDetectors;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.IItemHandler;
 
 public class MobDetectorItemHandler implements IItemHandler
 {
-	public final MobDetectorTileEntity mobDetector;
+	public final MobDetectorBlockEntity mobDetector;
 	
 	public static boolean isItemValidFilter(ItemStack stack)
 	{
-		return ItemTags.getCollection().get(ResourceLocations.SLIME_TAG).contains(stack.getItem());
+		return stack.is(EntityDetectors.Tags.Items.MOB_DETECTOR_FILTERS);
 	}
 	
-	public MobDetectorItemHandler(MobDetectorTileEntity mobDetector)
+	public MobDetectorItemHandler(MobDetectorBlockEntity mobDetector)
 	{
 		this.mobDetector = mobDetector;
 	}
@@ -28,13 +28,13 @@ public class MobDetectorItemHandler implements IItemHandler
 	@Override
 	public ItemStack getStackInSlot(int slot)
 	{
-		return this.mobDetector.slimeStack;
+		return this.mobDetector.getSlimeStack();
 	}
 
 	@Override
 	public ItemStack insertItem(int slot, ItemStack stack, boolean simulate)
 	{
-		ItemStack existingStack = this.mobDetector.slimeStack;
+		ItemStack existingStack = this.mobDetector.getSlimeStack();
 		if (existingStack.getCount() > 0)	// already has item
 		{
 			return stack.copy();
@@ -45,7 +45,7 @@ public class MobDetectorItemHandler implements IItemHandler
 			{
 				ItemStack newStackInInventory = stack.copy();
 				newStackInInventory.setCount(1);
-				this.mobDetector.slimeStack = newStackInInventory;
+				this.mobDetector.setSlimeStack(newStackInInventory);;
 			}
 			
 			ItemStack remainder = stack.copy();
@@ -57,10 +57,10 @@ public class MobDetectorItemHandler implements IItemHandler
 	@Override
 	public ItemStack extractItem(int slot, int amount, boolean simulate)
 	{
-		ItemStack outStack = this.mobDetector.slimeStack.copy();
+		ItemStack outStack = this.mobDetector.getSlimeStack().copy();
 		if (!simulate)
 		{
-			this.mobDetector.slimeStack = ItemStack.EMPTY;
+			this.mobDetector.setSlimeStack(ItemStack.EMPTY);
 		}
 		return outStack;
 	}

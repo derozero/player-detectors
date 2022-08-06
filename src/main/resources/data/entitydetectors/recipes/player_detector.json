@@ -7,16 +7,16 @@
   ],
   "key": {
     "Q": {
-      "item": "minecraft:quartz"
+      "tag": "forge:gems/quartz"
     },
     "R": {
-      "item": "minecraft:redstone"
+      "tag": "forge:dusts/redstone"
     },
     "S": {
       "item": "minecraft:spider_eye"
     },
     "#": {
-      "item": "minecraft:cobblestone"
+      "tag": "forge:cobblestone"
     }
   },
   "result": {

@@ -6,10 +6,9 @@ import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 
-import commoble.entitydetectors.util.ClassHelper;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.world.World;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.level.Level;
 
 public class FakeClientEntities
 {
@@ -25,52 +24,28 @@ public class FakeClientEntities
 			}
 		);
 	
-	public static <T extends Entity> Entity getFakeEntity(EntityType<T> type, World world)
+	public static <T extends Entity> Entity getFakeEntity(EntityType<T> type, Level level)
 	{
 		if (type == null)
 			return null;
-		return ENTITY_LOADER.getUnchecked(EntityContext.of(type, world));
+		return ENTITY_LOADER.getUnchecked(EntityContext.of(type, level));
 	}
 	
-	public static Optional<Entity> getOptionalFakeEntity(Optional<EntityType<?>> maybeType, World world)
+	public static Optional<Entity> getOptionalFakeEntity(Optional<EntityType<?>> maybeType, Level level)
 	{
-		return maybeType.map(type -> ENTITY_LOADER.getUnchecked(EntityContext.of(type, world)));
+		return maybeType.map(type -> ENTITY_LOADER.getUnchecked(EntityContext.of(type, level)));
 	}
 	
-	public static class EntityContext<T extends Entity>
-	{
-		public final EntityType<T> type;
-		public final World world;
-		
-		private EntityContext(EntityType<T> type, World world)
+	public static record EntityContext<T extends Entity>(EntityType<T> type, Level level)
+	{		
+		public static <T extends Entity> EntityContext<T> of(EntityType<T> type, Level level)
 		{
-			this.type = type;
-			this.world = world;
-		}
-		
-		public static <T extends Entity> EntityContext<T> of(EntityType<T> type, World world)
-		{
-			return new EntityContext<T>(type, world);
+			return new EntityContext<T>(type, level);
 		}
 		
 		public T createEntity()
 		{
-			return this.type.create(this.world);
-		}
-		
-		@Override
-		public int hashCode()
-		{
-			return this.type.getRegistryName().hashCode() + this.world.hashCode();
-		}
-		
-		@Override
-		public boolean equals(Object obj)
-		{
-			return ClassHelper.as(obj, EntityContext.class)
-				.map(other -> this.type.getRegistryName().equals(other.type.getRegistryName())
-					&& this.world == other.world)
-				.orElse(false);
+			return this.type.create(this.level);
 		}
 	}
 }

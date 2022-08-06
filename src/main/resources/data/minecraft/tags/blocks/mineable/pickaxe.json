@@ -1,0 +1,7 @@
+{ 
+	"values":
+	[ 
+		"entitydetectors:player_detector",
+		"entitydetectors:mob_detector"
+	]
+}

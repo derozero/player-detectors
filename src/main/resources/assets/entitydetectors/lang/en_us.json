@@ -1,5 +1,6 @@
 {
 	"block.entitydetectors.player_detector": "Player Detector",
 	"block.entitydetectors.mob_detector": "Mob Detector",
-	"item.entitydetectors.imprinted_slime_ball": "Imprinted Slimeball"
+	"item.entitydetectors.imprinted_slime_ball": "Imprinted Slimeball",
+	"itemGroup.entitydetectors": "Entity Detectors"
 }
