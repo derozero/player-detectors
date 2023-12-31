@@ -1,7 +1,0 @@
-{
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "entitydetectors:item/imprinted_slime_ball",
-        "layer1": "entitydetectors:item/imprinted_slime_ball_tinge"
-    }
-}
