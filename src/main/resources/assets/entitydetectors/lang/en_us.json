@@ -1,5 +1,4 @@
 {
 	"block.entitydetectors.player_detector": "Player Detector",
-	"block.entitydetectors.mob_detector": "Mob Detector",
 	"itemGroup.entitydetectors": "Entity Detectors"
 }

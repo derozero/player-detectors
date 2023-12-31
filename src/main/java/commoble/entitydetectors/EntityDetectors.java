@@ -1,7 +1,5 @@
 package commoble.entitydetectors;
 import commoble.entitydetectors.registrables.EntityDetectorBlock;
-import commoble.entitydetectors.registrables.MobDetectorBlock;
-import commoble.entitydetectors.registrables.MobDetectorBlockEntity;
 import commoble.entitydetectors.registrables.PlayerDetectorBlock;
 import commoble.entitydetectors.registrables.PlayerDetectorBlockEntity;
 import net.minecraft.world.item.BlockItem;
@@ -32,7 +30,7 @@ public class EntityDetectors
 		@Override
 		public ItemStack makeIcon()
 		{
-			return new ItemStack(MOB_DETECTOR.get());
+			return new ItemStack(PLAYER_DETECTOR.get());
 		}
 	};
 	
@@ -43,13 +41,10 @@ public class EntityDetectors
 	private static final DeferredRegister<BlockEntityType<?>> BETS = defreg(ForgeRegistries.BLOCK_ENTITY_TYPES);
 	
 	public static final RegistryObject<EntityDetectorBlock> PLAYER_DETECTOR = BLOCKS.register(Names.PLAYER_DETECTOR, () -> new PlayerDetectorBlock(BlockBehaviour.Properties.of(Material.STONE).strength(3.0F).lightLevel(EntityDetectorBlock::getLightValue).noOcclusion()));
-	public static final RegistryObject<MobDetectorBlock> MOB_DETECTOR = BLOCKS.register(Names.MOB_DETECTOR, () -> new MobDetectorBlock(BlockBehaviour.Properties.of(Material.STONE).strength(3.0F).lightLevel(EntityDetectorBlock::getLightValue).noOcclusion()));
 	
 	public static final RegistryObject<BlockItem> PLAYER_DETECTOR_ITEM = ITEMS.register(Names.PLAYER_DETECTOR, () -> new BlockItem(PLAYER_DETECTOR.get(), new Item.Properties().tab(TAB)));
-	public static final RegistryObject<BlockItem> MOB_DETECTOR_ITEM = ITEMS.register(Names.MOB_DETECTOR, () -> new BlockItem(MOB_DETECTOR.get(), new Item.Properties().tab(TAB)));
 
 	public static final RegistryObject<BlockEntityType<PlayerDetectorBlockEntity>> PLAYER_DETECTOR_BET = BETS.register(Names.PLAYER_DETECTOR, () -> BlockEntityType.Builder.of(PlayerDetectorBlockEntity::create, PLAYER_DETECTOR.get()).build(null));
-	public static final RegistryObject<BlockEntityType<MobDetectorBlockEntity>> MOB_DETECTOR_BET = BETS.register(Names.MOB_DETECTOR, () -> BlockEntityType.Builder.of(MobDetectorBlockEntity::create, MOB_DETECTOR.get()).build(null));
 	
 	public EntityDetectors()
 	{		

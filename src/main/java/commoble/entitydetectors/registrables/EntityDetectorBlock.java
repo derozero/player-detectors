@@ -1,13 +1,12 @@
 package commoble.entitydetectors.registrables;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
@@ -45,48 +44,21 @@ public abstract class EntityDetectorBlock extends Block implements EntityBlock
 		return state.getValue(POWERED) ? 7 : 0;
 	}
 
-	/**
-	 * Can this block provide power. Only wire currently seems to have this change
-	 * based on its state.
-	 * 
-	 * @deprecated call via {@link BlockState#canProvidePower()} whenever possible.
-	 *             Implementing/overriding is fine.
-	 */
-	@Deprecated
-	@Override
-	public boolean isSignalSource(BlockState state)
-	{
-		return true;
-	}
-
-	/**
-	 * @deprecated call via
-	 *             {@link BlockState#getStrongPower(IBlockAccess,BlockPos,EnumFacing)}
-	 *             whenever possible. Implementing/overriding is fine.
-	 */
-	@Deprecated
-	@Override
-	public int getDirectSignal(BlockState blockState, BlockGetter blockAccess, BlockPos pos, Direction side)
-	{
-		return blockState.getSignal(blockAccess, pos, side);
-	}
-
-	/**
-	 * @deprecated call via
-	 *             {@link IBlockState#getWeakPower(IBlockAccess,BlockPos,EnumFacing)}
-	 *             whenever possible. Implementing/overriding is fine.
-	 */
-	@Deprecated
-	@Override
-	public int getSignal(BlockState blockState, BlockGetter blockAccess, BlockPos pos, Direction side)
-	{
-		return blockState.getValue(POWERED) ? 15 : 0;
-	}
-
 	@Override
 	@Deprecated
 	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit)
 	{
+		 if (!level.isClientSide) {
+		        BlockEntity be = level.getBlockEntity(pos);
+		        if (be instanceof PlayerDetectorBlockEntity) {
+		            PlayerDetectorBlockEntity detectorBE = (PlayerDetectorBlockEntity) be;
+		if (player.isCrouching()) {
+            String message = "Players Spotted: " + String.join(", ", detectorBE.getPlayerUsernames());
+            player.sendSystemMessage(Component.literal(message)); 
+        }
+
+		        }
+		 }
 		if (state.hasProperty(LEVEL))
 		{
 			int oldLevel = state.getValue(LEVEL);

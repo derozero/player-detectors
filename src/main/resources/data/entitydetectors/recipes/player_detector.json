@@ -1,22 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "#R#",
-    "SQS",
-    "#R#"
+    " R ",
+    "RQR",
+    " R "
   ],
   "key": {
     "Q": {
-      "tag": "forge:gems/quartz"
+      "item": "minecraft:sculk_sensor"
     },
     "R": {
-      "tag": "forge:dusts/redstone"
-    },
-    "S": {
-      "item": "minecraft:spider_eye"
-    },
-    "#": {
-      "tag": "forge:cobblestone"
+      "item": "minecraft:observer"
     }
   },
   "result": {

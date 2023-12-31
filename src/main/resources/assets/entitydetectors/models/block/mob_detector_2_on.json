@@ -1,8 +1,0 @@
-{
-    "parent": "block/cube_bottom_top",
-    "textures": {
-        "top": "entitydetectors:block/mob_detector_top",
-        "bottom": "block/red_nether_bricks",
-        "side": "entitydetectors:block/mob_detector_side_2_on"
-    }
-}

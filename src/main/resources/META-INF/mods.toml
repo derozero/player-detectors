@@ -17,7 +17,7 @@ modId="entitydetectors" #mandatory
 # The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
 version="${file.jarVersion}" #mandatory
  # A display name for the mod
-displayName="Entity Detectors" #mandatory
+displayName="Player Detectors" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification <here>
 #updateJSONURL="http://myurl.me/" #optional
 # A URL for the "homepage" for this mod, displayed in the mod UI
@@ -25,15 +25,12 @@ displayURL="https://www.curseforge.com/minecraft/mc-mods/entity-detectors" #opti
 # A file name (in the root of the mod JAR) containing a logo for display
 logoFile="logo.png" #optional
 # A text field displayed in the mod UI
-credits="I hear the Minecraft Mod Development discord channel is the cat's bananas" #optional
+credits="Commoble made the majority of this, dero just hobbled things together" #optional
 # A text field displayed in the mod UI
-authors="Commoble"
+authors="Commoble + Dero"
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-Adds blocks that emit redstone signals while entities are near.
-
-Attack or shift-right-click a mob with a slimeball you can use to filter
-the mob detector by mob type.
+Adds a block that logs any player that comes into its radius.
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.entitydetectors]] #optional
