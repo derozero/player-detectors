@@ -32,7 +32,11 @@ public abstract class EntityDetectorBlockEntity<ENTITY extends Entity> extends B
 		{
 			BlockPos pos = this.worldPosition;
 			int detectionLevel = actualState.getValue(EntityDetectorBlock.LEVEL);
-			double radius = 2D * Math.pow(2D, detectionLevel);
+			int booster = detectionLevel+detectionLevel;
+			double radius = 2D * Math.pow(2D, booster);
+			if (detectionLevel==3) {
+				radius=60;
+			}
 			double radiusSquared = radius * radius;
 			AABB aabb = BOX.move(pos).inflate(radius);
 			Vec3 center = new Vec3(pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D);

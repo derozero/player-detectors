@@ -9,7 +9,7 @@ public record CommonConfig(IntValue refreshRate)
 	{
 		return new CommonConfig(
 			builder.comment("How often entity detectors will check for entities (in ticks per update)")
-				.defineInRange("refresh_rate", 10, 1, Integer.MAX_VALUE)
+				.defineInRange("refresh_rate", 20, 1, Integer.MAX_VALUE)
 		);
 	}
 }
